@@ -57,22 +57,22 @@
 </tr>
 <tr>
 <td>elpais.com</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>HTTPS</td>
+<td>HTTP/2.0</td>
+<td>38 solicitudes</td>
+<td>2,54 min</td>
+<td> mw1261.eqiad.wmnet</td>
+<td>gzip</td>
 <td></td>
 </tr>
 <tr>
 <td>www.lavanguardia.com</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>HTTP</td>
+<td> HTTP/1.1</td>
+<td>466 Solicitudes</td>
+<td> 1,43 min</td>
+<td>nginx</td>
+<td>gzip</td>
 <td></td>
 </tr>
 <tr>
@@ -87,34 +87,54 @@
 </tr>
 <tr>
 <td>www.youtube.com</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>HTTPS</td>
+<td> HTTP/2.0</td>
+<td>82 Solicitudes</td>
+<td> 44,06 s</td>
+<td>YouTube Frontend Proxy</td>
+<td>br</td>
+<td> max-age=31536000</td>
 </tr>
 <tr>
 <td>h2o.examp1e.net</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>HTTPS</td>
+<td>HTTP/2.0</td>
+<td>13 Solicitudes</td>
+<td>35,18 s</td>
+<td>h2o/2.3.0-DEV</td>
+<td>gzip, deflate, br</td>
 <td></td>
 </tr>
 <tr>
 <td>caddyserver.com</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>HTTPS</td>
+<td>HTTP/2.0</td>
+<td>21 Solicitudes</td>
+<td>1,60 s</td>
+<td>Caddy</td>
+<td>gzip</td>
+<td>max-age=31536000</td>
 </tr>
 </tbody>
 </table>
 </div>
+
+<p>Utilice las herramientas del desarrollador de Chromium para:</p>
+
+<ul>
+<li>Activar el soporte para <a class="external-link" title="" href="https://en.wikipedia.org/wiki/QUIC" target="_self">QUIC</a> en la URL: chrome://flags/#enable-quic</li>
+<li>Observar el uso de QUIC en la URL: chrome://net-internals/#quic</li>
+<li>Determinar qu&eacute; servicios (de los de la lista anterior) utilizan QUIC</li>
+</ul>
+
+
+<h3>Rendimiento</h3>
+
+<p>El comando <a class="external-link" title="" href="https://en.wikipedia.org/wiki/ApacheBench" target="_self">ab</a> forma parte de las herramientas que acompa&ntilde;an al servidor web Apache y permite generar peticiones concurrentes para poner a prueba un servidor.</p>
+<p>Por ejemplo, para solicitar 1000 veces con un nivel de concurrencia de 25 la p&aacute;gina web del centro se puede escribir:</p>
+<pre>ab -n 1000 -c 25 https://elpuig.xeill.net/</pre>
+<p>Utilice el comando ab para solicitar las siguientes webs:</p>
+<ul>
+<li>https://elpuig.xeill.net/</li>
+<li>https://ru.wikipedia.org/</li>
+<li>https://www.google.es/</li>
